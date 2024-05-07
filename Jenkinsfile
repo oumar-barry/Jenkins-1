@@ -1,14 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:21-alpine'
-        }
-    }
+    agent any
 
+    options {
+        timeout(time: 1, unit: 'HOURS')
+    }
     stages {
         stage('build'){
+            options {
+                timestamps()
+            }
             steps {
-                sh 'node -v '
+                echo "Coucou tout le monde "
             }
         }
     }
