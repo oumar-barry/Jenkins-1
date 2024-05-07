@@ -8,11 +8,15 @@ pipeline {
         }
 
         stage('test'){
-            echo 'test'
+            steps {
+                echo 'test'
+            }
         }
 
         stage('deployment'){
-            echo 'deployment'
+            steps { 
+                echo 'deployment'
+            }
         }
 
     }
