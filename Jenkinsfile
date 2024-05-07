@@ -21,7 +21,7 @@ pipeline {
                 echo "Coucou tout le monde "
                 echo "NAME: ${NAME}"
                 echo "STRING: ${STRING}"
-                echo "BOLLEAN: ${BOLLEAN}"
+                echo "BOOLEAN: ${BOOLEAN}"
                 echo "CHOICE: ${CHOICE}"
                 echo "PASSWORD: ${PASSWORD}"
             }
