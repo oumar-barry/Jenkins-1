@@ -9,13 +9,7 @@ pipeline {
         cron("* * * * *")
     }
 
-    parameters {
-        text(name: 'NAME', defaultValue: 'Barry', description: 'name field')
-        string(name: 'STRING', defaultValue: 'a long text', description: 'text field ')
-        booleanParam(name: 'BOOLEAN', defaultValue: 'true', description: 'boolean field' )
-        choice(name: 'CHOICE', choices: ['one','two', 'tree'], description: 'choice field')
-        password(name: 'PASSWORD', description: 'Password field ')
-    }
+    
     stages {
         stage('build'){
             options {
