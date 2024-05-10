@@ -15,6 +15,8 @@ pipeline {
             
             steps {
                 echo "Coucou tout le monde "
+                echo "Another modification"
+                echo "This poll is working"
                 
             }
         }
