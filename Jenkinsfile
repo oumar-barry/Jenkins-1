@@ -12,9 +12,7 @@ pipeline {
     
     stages {
         stage('build'){
-            options {
-                timestamps()
-            }
+            
             steps {
                 echo "Coucou tout le monde "
                 
