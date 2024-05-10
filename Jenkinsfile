@@ -26,7 +26,6 @@ pipeline {
                 message 'Would you like to deploy to production'
                 ok 'deploy now'
                 submitter 'admin,devops'
-                submitParameter 'USER_SUBMIT'
                 parameters { 
                     string(name: 'VERSION', defaultValue: 'latest', description: 'The version of the deployed app ')
                 }
@@ -36,7 +35,7 @@ pipeline {
             steps {
                 echo "App going to production"
                 echo "VERSION: ${VERSION}"
-                echo "USER_SUBMIT! ${USER_SUBMIT}"
+                
             }
         }
     }
