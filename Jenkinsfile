@@ -17,11 +17,7 @@ pipeline {
             }
             steps {
                 echo "Coucou tout le monde "
-                echo "NAME: ${NAME}"
-                echo "STRING: ${STRING}"
-                echo "BOOLEAN: ${BOOLEAN}"
-                echo "CHOICE: ${CHOICE}"
-                echo "PASSWORD: ${PASSWORD}"
+                
             }
         }
     }
