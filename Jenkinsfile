@@ -26,7 +26,7 @@ pipeline {
                 message 'Would you like to deploy to production'
                 ok 'deploy now'
                 submitter 'admin,devops'
-                submitParamter 'USER_SUBMIT'
+                submitParameter 'USER_SUBMIT'
                 parameters { 
                     string(name: 'VERSION', defaultValue: 'latest', description: 'The version of the deployed app ')
                 }
