@@ -6,7 +6,7 @@ pipeline {
     }
 
     triggers{
-        cron("* * * * *")
+        cron('* * * * *')
     }
 
     
@@ -26,14 +26,7 @@ pipeline {
         }
     }
     
-    post {
-        success {
-            echo 'success'
-        }
-        always {
-            echo 'always'
-        }
-    }
+    
 
     
 }
