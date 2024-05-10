@@ -14,7 +14,7 @@ pipeline {
 
         stage('deploy'){
             when {
-                branch 'prod'
+                branch 'main'
                 expression {DEPLOY_TO}
             }
             
