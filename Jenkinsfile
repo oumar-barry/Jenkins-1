@@ -5,6 +5,10 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
     }
 
+    triggers{
+        cron("* * * * *")
+    }
+
     parameters {
         text(name: 'NAME', defaultValue: 'Barry', description: 'name field')
         string(name: 'STRING', defaultValue: 'a long text', description: 'text field ')
