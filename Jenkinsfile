@@ -1,41 +1,25 @@
 pipeline {
     agent any
 
-    options {
-        timeout(time: 1, unit: 'HOURS')
+    parameters {
+        booleanParam(name: 'DEPLOY_TO', defaultValue: 'false', description: 'Deploy to production ? ')
     }
-
-    triggers{
-        pollSCM('* * * * *')
-    }
-
     
     stages {
         stage('build'){
-            
             steps {
-                echo "Coucou tout le monde "
-                echo "Another modification"
-                echo "This poll is working"
-                
+                echo "Building the app"
             }
         }
 
         stage('deploy'){
-            input {
-                message 'Would you like to deploy to production'
-                ok 'deploy now'
-                submitter 'admin,devops'
-                parameters { 
-                    string(name: 'VERSION', defaultValue: 'latest', description: 'The version of the deployed app ')
-                }
+            when {
+                branch 'prod'
+                expression {DEPLOY_TO}
             }
-
             
             steps {
                 echo "App going to production"
-                echo "VERSION: ${VERSION}"
-                
             }
         }
     }
