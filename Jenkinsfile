@@ -1,40 +1,40 @@
 pipeline {
     agent any
 
-    parameters {
-        booleanParam(name: 'DEPLOY_TO', defaultValue: 'false', description: 'Deploy to production ? ')
-    }
-    
     stages {
-        stage('build'){
-            parallel {
-                stage('build frontend'){
-                    steps {
-                        echo "Building frontend"
+        stage('build and test'){
+            matrix {
+                axes {
+                    axis {
+                        name 'PLATFORM'
+                        values 'Linux','Mac OS', 'Windows'
                     }
-                }
-
-                stage('build backend'){
-                    steps {
-                        echo "Building backend"
+                    axis {
+                        name 'BROWSER'
+                        values 'Brave', 'Chrome', 'Firefox'
                     }
                 }
             }
-        }
 
+            stages{
+                stage('build'){
+                    steps {
+                        echo "Building for ${PLATFORM} - ${BROWSER}"
+                    }
+                }
+
+                stage('test'){
+                    steps {
+                        echo "Testing for ${PLATFORM} - ${BROWSER}"
+                    }
+                }
+            }
+        }   
+        
         stage('deploy'){
-            when {
-                branch 'main'
-                expression {DEPLOY_TO}
-            }
-            
             steps {
-                echo "App going to production"
-            }
+                echo "Deploying the app to production "
+            }       
         }
     }
-    
-    
-
-    
 }
