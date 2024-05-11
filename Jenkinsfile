@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+        NodeJS 'Node22'
+    }
+
     stages {
         stage('build'){
             steps {
-                sh 'echo hello tout le monde > file.txt'
-                archiveArtifacts(artifacts: '*.txt')
+                sh 'npm -v'
+                
             }
         }
 
