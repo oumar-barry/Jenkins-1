@@ -14,21 +14,22 @@ pipeline {
                         values 'Brave', 'Chrome', 'Firefox'
                     }
                 }
-            }
+                stages{
+                    stage('build'){
+                        steps {
+                            echo "Building for ${PLATFORM} - ${BROWSER}"
+                        }
+                    }
 
-            stages{
-                stage('build'){
-                    steps {
-                        echo "Building for ${PLATFORM} - ${BROWSER}"
+                    stage('test'){
+                        steps {
+                            echo "Testing for ${PLATFORM} - ${BROWSER}"
+                        }
                     }
                 }
-
-                stage('test'){
-                    steps {
-                        echo "Testing for ${PLATFORM} - ${BROWSER}"
-                    }
-                }
             }
+
+            
         }   
         
         stage('deploy'){
