@@ -7,8 +7,18 @@ pipeline {
     
     stages {
         stage('build'){
-            steps {
-                echo "Building the app"
+            parallel {
+                stage('build frontend'){
+                    steps {
+                        echo "Building frontend"
+                    }
+                }
+
+                stage('build backend'){
+                    steps {
+                        echo "Building backend"
+                    }
+                }
             }
         }
 
