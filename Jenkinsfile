@@ -17,7 +17,7 @@ pipeline {
 
     post {
         success {
-            emailext(to: 'alphaoumareclipse@gmail.com', body: $DEFAULT_CONTENT, subject: $DEFAULT_SUBJECT)
+            emailext(to: 'alphaoumareclipse@gmail.com', body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT')
         }
     }
    
