@@ -1,15 +1,10 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'Node22'
-    }
-
     stages {
         stage('build'){
             steps {
-                sh 'npm -v'
-                
+                sh "Build complete"
             }
         }
 
@@ -18,6 +13,10 @@ pipeline {
                 echo "Deploy to production "
             }
         }
+    }
+
+    post {
+        emailext(to: alphaoumareclipse@gmail.com, body: $DEFAULT_CONTENT, subject: $DEFAULT_SUBJECT)
     }
    
 }
